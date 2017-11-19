@@ -1,0 +1,56 @@
+
+.mobmenu a {
+    float                     : left;
+    display                 : block;
+    color                     : var(--menu_text_color);
+    text-align             : center;
+    padding               : 0.5rem 0.5rem;
+    text-decoration  : none;
+}
+
+.mobmenu a:hover {
+    background-color : var(--menu_text_color);
+    color                        : var(--menu_background);
+}
+
+.active {
+   border : 1px solid var(--menu_text_color);
+}
+
+/* Hide the link that should open and close the mobmenu on small screens */
+.mobmenu .icon {
+    display : none;
+}
+
+.mobmenu i {
+    margin-right : 0.6rem;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one. 
+Show the link that contains should open and close the mobmenu  (.icon)  */
+@media screen and (max-width: 600px) {
+  .mobmenu a:not(:first-child) { 
+    display : none; 
+   }
+  .mobmenu a.icon {
+    float      : right;
+    display : block;
+  }
+}
+
+/* The "responsive" class is added to the mobmenu with JavaScript when the user clicks on the icon. 
+This class makes the mobmenu look good on small screens (display the links vertically instead of 
+horizontally) */
+@media screen and (max-width: 600px) {
+  .mobmenu.responsive {position: relative;}
+  .mobmenu.responsive a.icon {
+    position : absolute;
+    right       : 0;
+    top         : 0;
+  }
+  .mobmenu.responsive a {
+    float          : none;
+    display     : block;
+    text-align : left;
+  }
+}

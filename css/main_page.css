@@ -1,0 +1,158 @@
+@font-face {
+  font-family  : main_font;
+  src                : url("../fonts/DroidSans.ttf");
+  }
+  
+ :root{
+	--background_color  : #212121;
+	--grid_gap                   : 0.3rem;
+	--main_font_size        : 1.01rem; 
+	--border_color           :  #f08c00;
+	--border-width           : 1px;
+	--grid-box-color         :  #9d9485;  
+	--main-text-color       : black; 
+ }
+
+ body {
+  margin              : 0;
+  padding            : 0;
+  min-height       : auto;
+  font-family       : main_font;
+  font-size           : var(--main_font_size);
+  }
+ 
+ p{
+	 padding-left    : 1rem;
+	 padding-right : 1rem;
+ } 
+ 
+ .logolink{
+	  margin : auto;
+ }
+ 
+ .centered_img{
+	 margin-left          : auto;
+	 margin-right       : auto;
+	 margin-top         : 1rem;
+	 margin-bottom  : auto;
+ }
+ 
+/* Grid-areas *************************/
+ .navbar {
+		grid-area : navbar;
+  }
+
+ .sidebar {
+		grid-area : sidebar;
+ }
+
+ .content {
+		grid-area : content;
+ }
+
+ .header {
+		grid-area: header;
+ }
+
+ .footer {
+		grid-area : footer;
+	
+ }
+/* разметка под разное разрешение ************  */
+/* контрольные точки 600px и 1024px должны быть */
+/* согласованы с точками vzmenu.css                           */
+ .wrapper {
+		background-color : var(--background_color);
+		color                        : black;
+		padding                  : 0.3rem;
+		padding-top           : 0.1rem;
+		max-width              : 100%;
+        display                    : grid;
+        grid-gap                 : var(--grid_gap);
+		      grid-template-areas:
+ 	         "navbar"
+             "content"
+             "sidebar"
+             "footer"
+  }
+
+	@media only screen and (min-width: 600px)  {
+	   .wrapper {
+		grid-template-columns: auto 30%;
+		grid-template-areas:
+	       "navbar navbar"
+		   "content sidebar"
+		   "footer footer";
+        }
+		 .box.navbar{
+		  background-color : var(--menu_background);	
+	    }  		
+	}
+
+	@media only screen and (min-width: 1024px)   {
+		.wrapper {
+         grid-gap                           : var(--grid_gap);
+		 grid-template-columns : 20% auto 20%;
+		 grid-template-areas:
+             "header  header  header"
+			 "navbar content sidebar"
+			 "footer  footer  footer";
+			}
+		 .box.navbar{
+		  background-color : var(--grid-box-color);	
+	    }  				
+	}
+	
+	@media (max-width: 1024px) {
+		.box.header { display : none; }
+	}
+/************************************/ 
+ .box {
+   background-color : var(--grid-box-color);
+   color                        : var(--main-text-color);
+   border-radius        : 5px;
+   padding                   : var(--grid_gap);
+   font-size                  : var(--main_font_size); 
+ }
+
+ .header{
+	background-color : var(--menu_background);
+	display                     : flex;             /* центрирование  */
+	padding-top            : 0.5rem; 
+	padding-bottom    : 0.5rem;
+	margin-top             : 0.1rem;
+ }
+ 
+ .navbar{
+		padding : 0;
+		margin : 0;
+ }
+ 
+ .footer {
+  background-color : var(--grid-box-color);
+  color                        : var(--main-text-color);
+  text-align                : center;
+}
+
+ .sidebar {
+   background-color : var(--grid-box-color);
+   color                        : var(--main-text-color);
+   display                     : flex;             /* центрирование  */
+}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
